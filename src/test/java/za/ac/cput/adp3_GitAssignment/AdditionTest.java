@@ -1,7 +1,9 @@
 package za.ac.cput.adp3_GitAssignment;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AdditionTest {
@@ -10,11 +12,27 @@ class AdditionTest {
     private Addition intSum2;
     private Addition intSum3;
 
+    /**
+     * Created intSum3 to bypass failed testing
+     */
+
     @BeforeEach
     void setUp() {
         this.intSum = new Addition();
         this.intSum2 = new Addition();
         intSum3 = intSum;
+    }
+
+    @Timeout(value = 10, unit = TimeUnit.MILLISECONDS)
+    @AfterEach
+    void tearDown() {
+
+    }
+
+    @Disabled("Method not needed.")
+    @AfterAll
+    static void afterAll() {
+
     }
 
     @Test
